@@ -8,7 +8,7 @@ import RightAside from '../../components/HomeLayout/RightAside';
 
 const Root = () => {
     return (
-        <div className='w-11/12 mx-auto'>
+        <div className='w-11/12 mx-auto' style={{ maxHeight: '100vh' }}>
             <header>
                 <Header></Header>
                 <section>
@@ -19,11 +19,11 @@ const Root = () => {
                 </section>
             </header>
 
-            <main className='grid grid-cols-12 gap-10 my-5'>
+            <main className='grid grid-cols-12 gap-10 my-20'>
                 <aside className='col-span-3'>
                     <LeftAside></LeftAside>
                 </aside>
-                <section className='col-span-6 overflow-y-auto' style={{ maxHeight: '100vh' }}>
+                <section className='col-span-6' >
                     <Outlet></Outlet>
                 </section>
                 <aside className='col-span-3'>
