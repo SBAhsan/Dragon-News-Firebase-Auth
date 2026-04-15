@@ -1,12 +1,12 @@
 import React from 'react';
-import Header from '../../components/Header/Header';
-import LatestNews from '../../components/LatestNews/LatestNews';
-import Navbar from '../../components/Navbar/Navbar';
-import LeftAside from '../../components/HomeLayout/LeftAside';
+import Header from '../components/Header/Header';
+import LatestNews from '../components/LatestNews/LatestNews';
+import Navbar from '../components/Navbar/Navbar';
+import LeftAside from '../components/HomeAsideLayout/LeftAside';
 import { Outlet } from 'react-router';
-import RightAside from '../../components/HomeLayout/RightAside';
+import RightAside from '../components/HomeAsideLayout/RightAside';
 
-const Root = () => {
+const HomeLayout = () => {
     return (
         <div className='w-11/12 mx-auto' style={{ maxHeight: '100vh' }}>
             <header>
@@ -34,4 +34,4 @@ const Root = () => {
     );
 };
 
-export default Root;
+export default HomeLayout;
