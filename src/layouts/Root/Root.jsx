@@ -19,7 +19,7 @@ const Root = () => {
                 </section>
             </header>
 
-            <main className='grid grid-cols-12 gap-10 my-20'>
+            <main className='grid grid-cols-1 lg:grid-cols-12 gap-10 my-20'>
                 <aside className='col-span-3'>
                     <LeftAside></LeftAside>
                 </aside>
