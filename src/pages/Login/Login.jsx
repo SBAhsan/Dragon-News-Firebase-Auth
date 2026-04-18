@@ -26,9 +26,7 @@ const Login = () => {
       setSuccess(true);
     })
     .catch(error => {
-      console.log(error.message);
-      alert(error.message);
-      setError(error.message);
+      setError(error.code);
     })
   };
 
@@ -51,6 +49,7 @@ const Login = () => {
             name="email"
             className="input w-full px-4 py-6 text-[#403F3F]"
             placeholder="Email"
+            required
           />
 
           {/* password */}
@@ -62,7 +61,12 @@ const Login = () => {
             name="password"
             className="input w-full px-4 py-6 text-[#403F3F]"
             placeholder="Password"
+            required
           />
+
+          {
+            error && <p className="text-red-600">{error}</p>
+          }
           <button type="submit" className="btn btn-neutral mt-4 bg-[#403F3F]">
             Login
           </button>

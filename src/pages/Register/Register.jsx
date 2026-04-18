@@ -1,10 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router";
 import { AuthContext } from "../../context/AuthContext/AuthContext";
 
 const Register = () => {
 
   const {createUserWithEmail, setUserData} = useContext(AuthContext);
+  const [error, setError] = useState('');
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -18,11 +19,10 @@ const Register = () => {
 
     createUserWithEmail(email, password)
     .then(result => {
-      console.log(result.user);
       setUserData(result.user);
     })
     .catch(error => {
-      console.log(error);
+      setError(error.code)
     })
   };
 
@@ -83,6 +83,10 @@ const Register = () => {
             placeholder="Password"
             required
           />
+
+          {
+            error && <p className="text-red-600">{error}</p>
+          }
 
           {/* register button */}
           <button type="submit" className="btn btn-neutral mt-4 bg-[#403F3F]">
