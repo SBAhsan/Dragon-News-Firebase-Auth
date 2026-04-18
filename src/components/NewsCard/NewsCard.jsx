@@ -1,8 +1,9 @@
 import { format } from "date-fns";
 import { FaBookmark, FaShareAlt, FaStar, FaEye } from "react-icons/fa";
+import { Link } from "react-router";
 
 const NewsCard = ({ news }) => {
-  const { title, author, image_url, details, tags, rating, total_view } = news;
+  const { id, title, author, image_url, details, tags, rating, total_view } = news;
 
   return (
     <div className="border border-[#706F6F] hover:border-blue-400 rounded-xl p-4">
@@ -52,9 +53,9 @@ const NewsCard = ({ news }) => {
       </p>
       <p className="text-sm text-gray-600 mb-1">
         {details.slice(0, 150)}...{" "}
-        <span className="text-red-500 font-medium cursor-pointer">
+        <Link to={`/news-details/${id}`} className="text-red-500 font-medium cursor-pointer">
           Read More
-        </span>
+        </Link>
       </p>
 
       {/* Divider */}
