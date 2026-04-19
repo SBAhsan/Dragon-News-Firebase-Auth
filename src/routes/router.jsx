@@ -9,6 +9,7 @@ import HomeLayout from "../layouts/HomeLayout";
 import AuthLayout from "../layouts/AuthLayout";
 import NewsDetails from "../pages/NewsDetails/NewsDetails";
 import PrivateRoute from "../context/PrivateRoute/PrivateRoute";
+import Loading from "../components/Loading/Loading";
 
 const categoryNameData = fetch('/categories.json').then(res => res.json());
 
@@ -27,7 +28,8 @@ const router = createBrowserRouter([
                 <Suspense fallback="Loading...">
                     <CategoryNews categoryNameData={categoryNameData}></CategoryNews>
                 </Suspense>,
-                loader: () => fetch('/news.json')
+                loader: () => fetch('/news.json'),
+                hydrateFallbackElement: <Loading></Loading>
             }
         ]
     },
@@ -50,7 +52,8 @@ const router = createBrowserRouter([
         loader: () => fetch('/news.json'),
         element: <PrivateRoute>
             <NewsDetails></NewsDetails>
-        </PrivateRoute>
+        </PrivateRoute>,
+        hydrateFallbackElement: <Loading></Loading>
     }
 ])
 
