@@ -1,5 +1,6 @@
 import { NavLink, Outlet } from "react-router";
 import userImg from "../assets/user.png";
+import logoImg from "../assets/logo.png";
 
 const AuthLayout = () => {
   const navLinks = (
@@ -61,6 +62,10 @@ const AuthLayout = () => {
       <main>
         <Outlet></Outlet>
       </main>
+
+      <footer className="flex justify-center items-center gap-2 mb-5">
+        <p>&copy; All rights reserved by</p>
+        <img src={logoImg} className="h-4" alt="" /></footer>
     </div>
   );
 };

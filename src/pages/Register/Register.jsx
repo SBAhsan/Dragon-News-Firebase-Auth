@@ -16,7 +16,7 @@ const Register = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
 
-    console.log(name, photo, email, password);
+    // console.log(name, photo, email, password);
 
     createUserWithEmail(email, password)
     .then(result => {
@@ -39,7 +39,7 @@ const Register = () => {
   };
 
   return (
-    <div className="card w-full mx-auto bg-[#F3F3F3] text-[#403F3F] mt-20 mb-20 max-w-lg shrink-0 shadow-2xl">
+    <div className="card w-full mx-auto bg-[#F3F3F3] text-[#403F3F] mt-10 mb-20 max-w-lg shrink-0 shadow-2xl">
       <h2 className="font-semibold py-15 mx-5 text-4xl text-center pb-10 border-b border-[#403F3F]">
         Register your account
       </h2>

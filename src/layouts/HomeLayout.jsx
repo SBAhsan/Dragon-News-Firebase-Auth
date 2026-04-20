@@ -6,6 +6,7 @@ import LeftAside from '../components/HomeAsideLayout/LeftAside';
 import { Outlet, useNavigation } from 'react-router';
 import RightAside from '../components/HomeAsideLayout/RightAside';
 import Loading from '../components/Loading/Loading';
+import logoImg from '../assets/logo.png'
 
 const HomeLayout = () => {
 
@@ -38,6 +39,11 @@ const HomeLayout = () => {
                     <RightAside></RightAside>
                 </aside>
             </main>
+
+            <footer className="flex justify-center items-center gap-2 pb-5">
+                    <p>&copy; All rights reserved by</p>
+                    <img src={logoImg} className="h-4" alt="" />
+                  </footer>
         </div>
     );
 };

@@ -8,8 +8,6 @@ const CategoryNews = ({categoryNameData}) => {
   const data = useLoaderData();
   const categoryNameId = use(categoryNameData);
 
-  console.log(categoryNameData);
-
   const [categoryNews, setCategoryNews] = useState([]);
   const [categoryName, setCategoryName] = useState('');
 

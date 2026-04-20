@@ -8,7 +8,6 @@ const Login = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const [success, setSuccess] = useState(false);
   const [error, setError] = useState('');
 
   const handleLogIn = (e) => {
@@ -17,13 +16,11 @@ const Login = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
 
-    setSuccess(false);
     setError('');
 
     signInUserWithEmail(email, password)
     .then(() => {
       navigate(`${location.state ? location.state : '/'}`)
-      setSuccess(true);
     })
     .catch(error => {
       setError(error.code);
@@ -31,7 +28,7 @@ const Login = () => {
   };
 
   return (
-    <div className="card w-full mx-auto bg-[#F3F3F3] text-[#403F3F] mt-20 mb-20 max-w-lg shrink-0 shadow-2xl">
+    <div className="card w-full mx-auto bg-[#F3F3F3] text-[#403F3F] mt-10 mb-20 max-w-lg shrink-0 shadow-2xl">
       <h2 className="font-semibold py-15 mx-5 text-4xl text-center pb-10 border-b border-[#403F3F]">
         Login to your account
       </h2>
@@ -67,6 +64,7 @@ const Login = () => {
           {
             error && <p className="text-red-600">{error}</p>
           }
+
           <button type="submit" className="btn btn-neutral mt-4 bg-[#403F3F]">
             Login
           </button>
