@@ -27,7 +27,7 @@ const NewsDetails = () => {
                     <NewsDetailsCard news={news}></NewsDetailsCard>
                 </section>
                 <section className='col-span-3'>
-                    <RightAside></RightAside>
+                    <RightAside showBg={false}></RightAside>
                 </section>
             </main>
         </div>

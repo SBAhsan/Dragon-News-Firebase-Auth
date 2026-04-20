@@ -5,13 +5,13 @@ import QZone from '../QZone/QZone';
 import bgImg from '../../assets/bg.png'
 
 
-const RightAside = () => {
+const RightAside = ({showBg = true}) => {
     return (
         <div className='space-y-8'>
             <SocialLogin></SocialLogin>
             <FindUs></FindUs>
             <QZone></QZone>
-            <img src={bgImg} className='w-full' />
+            {showBg && <img src={bgImg} className='w-full' />}
         </div>
     );
 };
