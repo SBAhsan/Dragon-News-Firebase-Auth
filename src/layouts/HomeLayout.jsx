@@ -1,24 +1,24 @@
-import React from 'react';
+import React, { use } from 'react';
 import Header from '../components/Header/Header';
 import LatestNews from '../components/LatestNews/LatestNews';
 import Navbar from '../components/Navbar/Navbar';
 import LeftAside from '../components/HomeAsideLayout/LeftAside';
-import { Outlet, useNavigation } from 'react-router';
+import { Outlet, useLoaderData, useNavigation } from 'react-router';
 import RightAside from '../components/HomeAsideLayout/RightAside';
 import Loading from '../components/Loading/Loading';
 import logoImg from '../assets/logo.png'
 
 const HomeLayout = () => {
 
+    const allNews = useLoaderData();
     const {state} = useNavigation()
 
     return (
         <div className='w-11/12 mx-auto' style={{ maxHeight: '100vh' }}>
-            {import.meta.env.VITE_name}
             <header>
                 <Header></Header>
                 <section>
-                    <LatestNews></LatestNews>
+                    <LatestNews allNews={allNews}></LatestNews>
                 </section>
                 <section>
                     <Navbar></Navbar>

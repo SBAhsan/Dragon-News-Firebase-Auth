@@ -65,7 +65,8 @@ const AuthLayout = () => {
 
       <footer className="flex justify-center items-center gap-2 mb-5">
         <p>&copy; All rights reserved by</p>
-        <img src={logoImg} className="h-4" alt="" /></footer>
+        <img src={logoImg} className="h-4" alt="" />
+      </footer>
     </div>
   );
 };
