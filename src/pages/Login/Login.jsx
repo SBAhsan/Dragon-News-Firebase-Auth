@@ -1,10 +1,11 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../../context/AuthContext/AuthContext";
 
 const Login = () => {
 
-  const {signInUserWithEmail} = useContext(AuthContext);
+  const {signInUserWithEmail, resetUserPassword} = useContext(AuthContext);
+  const emailRef = useRef(null);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -24,8 +25,25 @@ const Login = () => {
     })
     .catch(error => {
       setError(error.code);
-    })
+    });   
   };
+
+  const handleResetPassword = () => {
+    const email = emailRef.current.value;
+
+    if(!email){
+      alert("Please enter your email");
+      return;
+    }
+
+    resetUserPassword(email)
+    .then(() => {
+      alert("Password reset email sent")
+    })
+    .catch(error => {
+      console.log(error.code);
+    });
+  }
 
   return (
     <div className="card w-full mx-auto bg-[#F3F3F3] text-[#403F3F] mt-10 mb-20 max-w-lg shrink-0 shadow-2xl">
@@ -64,6 +82,8 @@ const Login = () => {
           {
             error && <p className="text-red-600">{error}</p>
           }
+
+          <div><a onClick={handleResetPassword} className="link link-hover">Forgot password?</a></div>
 
           <button type="submit" className="btn btn-neutral mt-4 bg-[#403F3F]">
             Login
