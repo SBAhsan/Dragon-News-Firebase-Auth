@@ -1,12 +1,14 @@
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../../context/AuthContext/AuthContext";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Register = () => {
-
-  const {createUserWithEmail, setUserData, updateUserProfile} = useContext(AuthContext);
-  const [error, setError] = useState('');
-  const navigate = useNavigate()
+  const { createUserWithEmail, setUserData, updateUserProfile } =
+    useContext(AuthContext);
+  const [error, setError] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -19,23 +21,27 @@ const Register = () => {
     // console.log(name, photo, email, password);
 
     createUserWithEmail(email, password)
-    .then(result => {
+      .then((result) => {
+        const user = result.user;
+        updateUserProfile({ displayName: name, photoURL: photo })
+          .then(() => {
+            setUserData({ ...user, displayName: name, photoURL: photo });
+          })
+          .catch((error) => {
+            console.log(error.code);
+            setUserData(user);
+          });
 
-      const user = result.user;
-      updateUserProfile({displayName: name, photoURL: photo})
-      .then(() => {
-        setUserData({...user, displayName: name, photoURL: photo})
+        navigate("/");
       })
-      .catch(error => {
-        console.log(error.code);
-        setUserData(user);
+      .catch((error) => {
+        setError(error.code);
       });
+  };
 
-      navigate('/');
-    })
-    .catch(error => {
-      setError(error.code)
-    })
+  const handleToggleShowPassword = (e) => {
+    e.preventDefault();
+    setShowPassword(!showPassword);
   };
 
   return (
@@ -88,17 +94,23 @@ const Register = () => {
           <label className="label mt-3 text-[#403F3F] font-semibold text-[15px] border-none outline-0">
             Password
           </label>
-          <input
-            type="password"
-            name="password"
-            className="input w-full px-4 py-6 text-[#403F3F]"
-            placeholder="Password"
-            required
-          />
+          <div className="relative">
+            <input
+              type={!showPassword ? "password" : "text"}
+              name="password"
+              className="input w-full px-4 py-6 text-[#403F3F]"
+              placeholder="Password"
+              required
+            />
+            <button
+              onClick={handleToggleShowPassword}
+              className="btn btn-sm border-0 bg-transparent hover:shadow-none absolute top-2 right-2"
+            >
+              {!showPassword ? <FaEye></FaEye> : <FaEyeSlash></FaEyeSlash>}
+            </button>
+          </div>
 
-          {
-            error && <p className="text-red-600">{error}</p>
-          }
+          {error && <p className="text-red-600">{error}</p>}
 
           {/* register button */}
           <button type="submit" className="btn btn-neutral mt-4 bg-[#403F3F]">
