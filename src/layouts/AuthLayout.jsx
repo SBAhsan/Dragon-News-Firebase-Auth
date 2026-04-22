@@ -45,6 +45,7 @@ const AuthLayout = () => {
                 {navLinks}
               </ul>
             </div>
+            <a className="btn btn-ghost text-xl"><img className="h-6" src={logoImg} alt="" /></a>
           </div>
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal text-[#706F6F] space-x-6 text-[15px] px-1">

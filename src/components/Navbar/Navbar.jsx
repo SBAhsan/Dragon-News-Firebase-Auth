@@ -6,7 +6,6 @@ import { AuthContext } from "../../context/AuthContext/AuthContext";
 const Navbar = () => {
 
   const {userData, signOutUser} = useContext(AuthContext);
-  // console.log(userData);
 
   const handleLogOut = () => {
     signOutUser()
@@ -20,9 +19,9 @@ const Navbar = () => {
 
   const navLinks = (
     <>
-      <NavLink to={"/"}>Home</NavLink>
-      <NavLink to={"/about"}>About</NavLink>
-      <NavLink to={"/career"}>Career</NavLink>
+      <NavLink to={"/"} className='px-1 rounded-sm' end>Home</NavLink>
+      <NavLink to={"/about"} className='px-1 rounded-sm'>About</NavLink>
+      <NavLink to={"/career"} className='px-1 rounded-sm'>Career</NavLink>
     </>
   );
 
@@ -54,9 +53,10 @@ const Navbar = () => {
             {navLinks}
           </ul>
         </div>
+        
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal text-[#706F6F] space-x-6 text-[15px] px-1">
+        <ul className="menu menu-horizontal text-[#706F6F] space-x-6 text-[15px]">
           {navLinks}
         </ul>
       </div>

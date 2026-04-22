@@ -8,5 +8,5 @@
 }
 
 a.active{
-  @apply bg-[#c5c5c5]
+  @apply bg-[#c5c5c5];
 }

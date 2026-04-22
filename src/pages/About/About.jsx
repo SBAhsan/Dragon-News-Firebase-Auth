@@ -74,8 +74,6 @@ const About = () => {
           </div>
         </div>
 
-        
-
         {/* Team Section */}
         <div className="mt-12">
           <h2 className="text-2xl font-bold text-[#403F3F] mb-6 border-l-4 border-[#D72050] pl-4">
@@ -102,6 +100,26 @@ const About = () => {
                 name: "Nusrat Jahan",
                 role: "Sports Reporter",
                 img: "https://randomuser.me/api/portraits/women/68.jpg",
+              },
+              {
+                name: "Arif Hossain",
+                role: "Political Reporter",
+                img: "https://randomuser.me/api/portraits/men/71.jpg",
+              },
+              {
+                name: "Sadia Islam",
+                role: "Health Correspondent",
+                img: "https://randomuser.me/api/portraits/women/82.jpg",
+              },
+              {
+                name: "Tanvir Ahmed",
+                role: "Photojournalist",
+                img: "https://randomuser.me/api/portraits/men/45.jpg",
+              },
+              {
+                name: "Maliha Chowdhury",
+                role: "Business Reporter",
+                img: "https://randomuser.me/api/portraits/women/55.jpg",
               },
             ].map((member, i) => (
               <div key={i} className="text-center border rounded-xl p-6">
