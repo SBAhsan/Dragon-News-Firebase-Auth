@@ -25,7 +25,7 @@ const HomeLayout = () => {
                 </section>
             </header>
 
-            <main className='grid grid-cols-1 lg:grid-cols-12 gap-10 my-20'>
+            <main className='grid grid-cols-1 lg:grid-cols-12 gap-10 mt-20'>
                 <aside className='col-span-3'>
                     <LeftAside></LeftAside>
                 </aside>
@@ -40,7 +40,7 @@ const HomeLayout = () => {
                 </aside>
             </main>
 
-            <footer className="flex justify-center items-center gap-2 pb-5">
+            <footer className="flex justify-center items-center gap-2 pb-5 pt-10">
                     <p>&copy; All rights reserved by</p>
                     <img src={logoImg} className="h-4" alt="" />
                   </footer>

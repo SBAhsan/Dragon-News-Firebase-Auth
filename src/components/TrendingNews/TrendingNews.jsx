@@ -15,9 +15,6 @@ const TrendingNews = ({newsList}) => {
                 <TrendingNewsCard key={news.id} news={news} />
             ))}
             </ul>
-            <div className='pb-2'>
-                <img src={logo} className='h-5' />
-            </div>
         </div>
     );
 };

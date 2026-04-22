@@ -11,6 +11,7 @@ import NewsDetails from "../pages/NewsDetails/NewsDetails";
 import PrivateRoute from "../context/PrivateRoute/PrivateRoute";
 import Loading from "../components/Loading/Loading";
 import About from "../pages/About/About";
+import Career from "../pages/Career/Career";
 
 const categoryNameData = fetch('/categories.json').then(res => res.json());
 
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
             {
                 path: 'about',
                 Component: About
+            },
+            {
+                path: 'career',
+                Component: Career
             }
         ]
     },

@@ -11,7 +11,7 @@ const RightAside = ({showBg = true}) => {
             <SocialLogin></SocialLogin>
             <FindUs></FindUs>
             <QZone></QZone>
-            {showBg && <img src={bgImg} className='w-full' />}
+            {showBg && <img src={bgImg} className='w-full h-[640px]' />}
         </div>
     );
 };
