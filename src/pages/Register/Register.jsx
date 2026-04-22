@@ -4,7 +4,7 @@ import { AuthContext } from "../../context/AuthContext/AuthContext";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Register = () => {
-  const { createUserWithEmail, setUserData, updateUserProfile } =
+  const { createUserWithEmail, userEmailVerification, setUserData, updateUserProfile, signOutUser } =
     useContext(AuthContext);
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -23,6 +23,15 @@ const Register = () => {
     createUserWithEmail(email, password)
       .then((result) => {
         const user = result.user;
+
+        console.log(user);
+
+        userEmailVerification()
+        .then(() => {
+          alert("A verification email has sent to your email address");
+          return
+        })
+        
         updateUserProfile({ displayName: name, photoURL: photo })
           .then(() => {
             setUserData({ ...user, displayName: name, photoURL: photo });
@@ -32,7 +41,9 @@ const Register = () => {
             setUserData(user);
           });
 
-        navigate("/");
+          signOutUser();
+
+        navigate("/auth/login");
       })
       .catch((error) => {
         setError(error.code);

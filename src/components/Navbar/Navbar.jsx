@@ -63,7 +63,7 @@ const Navbar = () => {
       <div className="navbar-end">
         <div className="flex items-center gap-2">
           {
-            userData ? <img className="w-12 h-12 rounded-full" src={userData.photoURL} /> : <img src={userImg} alt="" />
+            userData ? <img className="w-11 h-11 rounded-full" src={userData.photoURL} /> : <img src={userImg} alt="" />
           }
           
           <div className="btn bg-[#403F3F] text-white px-10 py-2">

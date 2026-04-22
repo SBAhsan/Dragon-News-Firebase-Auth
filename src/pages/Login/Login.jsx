@@ -5,7 +5,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Login = () => {
 
-  const {signInUserWithEmail, resetUserPassword} = useContext(AuthContext);
+  const {signInUserWithEmail, signOutUser, resetUserPassword} = useContext(AuthContext);
   const emailRef = useRef(null);
   const location = useLocation();
   const navigate = useNavigate();
@@ -22,7 +22,12 @@ const Login = () => {
     setError('');
 
     signInUserWithEmail(email, password)
-    .then(() => {
+    .then((result) => {
+      if(!result.user.emailVerified){
+        alert("Please verify your email");
+        signOutUser();
+        return;
+      }
       navigate(`${location.state ? location.state : '/'}`)
     })
     .catch(error => {
