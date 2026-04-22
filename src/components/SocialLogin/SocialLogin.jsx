@@ -5,7 +5,7 @@ import { AuthContext } from "../../context/AuthContext/AuthContext";
 import userImg from "../../assets/user.png";
 
 const SocialLogin = () => {
-  const { userData, signInWithGoogle } = use(AuthContext);
+  const { userData, signInWithGoogle, signInWithGithub } = use(AuthContext);
 
   const handleGoogleLogin = () => {
     console.log("google clicked");
@@ -19,6 +19,17 @@ const SocialLogin = () => {
         console.log(error.code);
       });
   };
+
+  const handleGithubLogin = () => {
+    signInWithGithub()
+    .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        console.log(error.code);
+      });
+  }
 
   return (
     <div>
@@ -50,7 +61,7 @@ const SocialLogin = () => {
               <FcGoogle size={20}></FcGoogle>
               Login with Google
             </button>
-            <button className="btn btn-outline w-full text-[#403F3F] hover:bg-[#403F3F] hover:text-white font-medium">
+            <button onClick={handleGithubLogin} className="btn btn-outline w-full text-[#403F3F] hover:bg-[#403F3F] hover:text-white font-medium">
               <FaGithub size={20}></FaGithub>
               Login with Github
             </button>
